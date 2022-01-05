@@ -1,13 +1,13 @@
-FROM ccyykk00/sharelist:next
-MAINTAINER reruin <reruin@gmail.com>
+FROM alpine:edge
 
-ENV PORT 33001
-EXPOSE 33001
+RUN apk update && \
+    apk add --no-cache ca-certificates caddy tor wget && \
+    wget -O Xray-linux-64.zip  https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip  && \
+    unzip Xray-linux-64.zip && \
+    chmod +x /xray && \
+    rm -rf /var/cache/apk/*
 
-RUN chmod -R 777 /sharelist/cache
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
 
-ADD deploy.sh /deploy.sh
-
-RUN chmod +x /deploy.sh
-
-CMD /deploy.sh
+CMD /start.sh

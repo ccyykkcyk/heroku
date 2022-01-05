@@ -1,14 +1,30 @@
 {
-  "name": "Share",
-  "description": "deploy Share to Heroku",
-  "keywords": ["Webdav","GoogleDrive","OneDrive"],
-  "env": {
-    "CONFIG": {
-       "description": "配置文件(JSON字符串 或 http远程文件)",
-       "value": ""
-     }
-  },
-  "website": "https://github.com/ccyykkcyk/heroku",
-  "repository": "https://github.com/ccyykkcyk/heroku",
-  "stack": "container"
- }
+    "name": "XrayHeroku",
+    "description": "xray websocket proxy on heroku",
+    "keywords": ["xray vmess vless trojan shadowsocks socks tor"],
+    "env": {
+        "UUID": {
+            "description": "UUID充当各个配置的路径和账号密码，建议修改和妥善保存,可生成UUID的网站: https://www.uuidgenerator.net",
+            "value": ""
+        },
+        "CADDYIndexPage": {
+            "description": "CADDYIndexPage",
+            "value": "https://github.com/AYJCSGM/mikutap/archive/master.zip"
+        },
+        "CONFIGCADDY": {
+            "description": "自定义网络地址读取配置运行CADDY，不熟悉CADDY配置的请勿修改",
+            "value": ""
+        },
+        "CONFIGXRAY": {
+            "description": "自定义网络地址读取配置运行xray，不熟悉xray配置的请勿修改",
+            "value": ""
+        },
+        "StoreFiles": {
+            "description": "自定义网络地址读取存储文件列表",
+            "value": ""
+        }
+    },
+    "website": "https://github.com/ccyykkcyk/heroku",
+    "repository": "https://github.com/ccyykkcyk/heroku",
+    "stack": "container"
+}
